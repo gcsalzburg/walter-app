@@ -10,21 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
 		wrapper.classList.remove('splash')
 	});
 
-	// Load next message
-	function load_message_after(message){
-		message.nextElementSibling.classList.add("show");
-		if(message.nextElementSibling.classList.contains("walter")){
-			setTimeout(() => {
-				load_message_after(message.nextElementSibling)
-			}, 500);
-		}
-	}
+	// /////////////////////////////////////////////////////////////////////////////
 
-	setTimeout(() => {
-		load_message_after(document.querySelector(".first-conversation-marker"))
-	}, 100);
-	
-	// Fillables selection box references
+	// References
+	const conversation = document.querySelector(".conversation")
 	const selection_box = document.querySelector(".selection-box")
 	const selection_cancel_box = document.querySelector(".selection-cancel")
 
@@ -63,6 +52,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	}));
 
+	// Load next message
+	function load_message_after(message){
+		const next_message = message.nextElementSibling
+		if(next_message){
+			
+			next_message.classList.add("show")
+			check_scroll_overflow()
+
+			if(next_message.classList.contains("walter")){
+				if(next_message.classList.contains("loading")){
+					setTimeout(() => {
+						next_message.classList.add("loaded");
+						load_message_after(message.nextElementSibling)
+					}, 1500);
+				}else{
+					setTimeout(() => {
+						load_message_after(message.nextElementSibling)
+					}, 700);
+				}
+			}
+		}
+	}
+
+	setTimeout(() => {
+		load_message_after(document.querySelector(".first-conversation-marker"))
+	}, 100);
+	
 	// Cancel action
 	selection_cancel_box.addEventListener("click",(e) => {
 		clear_selected()
@@ -91,6 +107,11 @@ document.addEventListener("DOMContentLoaded", () => {
 		if(Array.from(fillable.parentElement.querySelectorAll('.fillable')).reduce((result, fillable) => (result & fillable.classList.contains("filled")), true)){
 			load_message_after(fillable.parentElement);
 		}
+	}
+
+	// Scroll downwards
+	function check_scroll_overflow(){
+		conversation.scrollTop = conversation.scrollHeight;
 	}
 
 });
