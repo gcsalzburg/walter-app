@@ -172,6 +172,14 @@ body{
 	border: none;
 	border-radius: 5px;
 }
+.fillable.selected{
+	border-bottom: 0px;
+	margin-bottom: 2px;
+	border-radius: 5px;
+}
+.fillable.selected.filled{
+	background: rgba(235, 235, 235, 0.8);
+}
 
 .you + .you{margin-top:8px;}
 

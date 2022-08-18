@@ -47,7 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
 		const selection_box_left = position.left + (position.width/2) - (selection_box_width/2)
 
 		// Style parent message
-		fillable.parentNode.classList.add('selected')
+		clear_selected(fillable)
+		fillable.parentElement.classList.add('selected')
+		fillable.classList.add('selected')
 
 		selection_box.style.top = `${position.bottom}px`
 		selection_box.style.left = `${selection_box_left}px`
@@ -55,16 +57,23 @@ document.addEventListener("DOMContentLoaded", () => {
 		// Selection of fillables element
 		selection_box.querySelectorAll(".option").forEach(option => option.addEventListener("click",(e) => {
 			e.preventDefault();
-			set_fillable(fillable, option.textContent);
+			clear_selected(fillable)
+			set_fillable(fillable, option.textContent)
 		}));
 
 	}));
 
 	// Cancel action
 	selection_cancel_box.addEventListener("click",(e) => {
+		clear_selected()
 		selection_box.classList.remove("show")
 		selection_cancel_box.classList.remove("show")
 	});
+
+	// Clear selections
+	function clear_selected(fillable){
+		document.querySelectorAll(".fillable, .message").forEach(elm => elm.classList.remove('selected'))
+	}
 
 	// Triggers when fillable is filled
 	function set_fillable(fillable, value){
