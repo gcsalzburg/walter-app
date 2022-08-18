@@ -1,18 +1,49 @@
 <!doctype html>
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=Utf-8">
+		<meta charset="utf-8">
 
-		<title>Project name</title>
+		<title>Walter</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-		<link rel="preconnect" href="https://fonts.gstatic.com">
-		<link href="https://fonts.googleapis.com/css2?IBM+Plex+Mono:wght@300&family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet"> 
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"> 
 
 		<link rel="stylesheet" href="include/styles.css">
 	</head>
 
 	<body>
-		<main>
+		<main class="wrapper">
+			<h1 class="logo"></h1>
+			<section class="conversation">
+				<div class="first-conversation-marker"></div>
+				<div class="message walter">
+					What would you like to wash today?
+				</div>
+				<div class="message you">
+					I have a <span class="fillable" data-options="full,almost full,half,small">xxx</span> load of washing that is <span class="fillable" data-options="very,somewhat,a little">xxx</span> dirty.
+				</div>
+				<div class="message you">
+					It is <span class="fillable" data-options="all,mostly,half,some">xxxxxx</span> <span class="fillable" data-options="white,coloured,mixed">xxxxxx</span> <span class="fillable" data-options="sports kit,towels,sheets,cotton shirts,trainers,linen shirts,silks,bras,teddies">xxxxxx</span>.
+				</div>
+				<div class="message you">
+					It should finish at <span class="fillable" data-options="5pm,6pm,7pm,8pm">xx</span>.
+				</div>
+				<div class="message walter loading">
+					<span class="dot"></span>
+					<span class="dot"></span>
+					<span class="dot"></span>
+				</div>
+			</section>
+
+			<div class="selection-box">
+				<span class="option">full</span>
+				<span class="option">almost full</span>
+				<span class="option">half</span>
+				<span class="option">small</span>
+			</div>
+			<div class="selection-cancel"></div>
 
 		</main>
 		

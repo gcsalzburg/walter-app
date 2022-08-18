@@ -1,1 +1,1 @@
-# Project name
+# 🧺 Walter Washing Machine App 
