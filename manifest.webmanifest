@@ -1,0 +1,9 @@
+{
+	"theme_color": "#27AEEF",
+	"background_color": "#27AEEF",
+	"description": "Walter",
+	"display": "fullscreen",
+	"name": "Walter",
+	"short_name": "Walter",
+	"start_url": "index.html"
+ }
